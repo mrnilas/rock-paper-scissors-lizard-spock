@@ -8,29 +8,34 @@
 <template>
   <main>
         <div class="anzeige">
-            Bot {{this.counter_bot}} - {{this.counter_human}} You
+            Bot {{counter_bot}} - {{counter_human}} You
         </div>
 
         <div class="spielfeld">
 
             <div class="anzeige-bot auswahl-anzeige">
-              <i id="bot" class="fa-regular fa-lg" :class="class_bot"></i>
-              <span @change="changeIcon">{{ choice_bot }}</span>
+              
+              <font-awesome-icon :icon="['fas',class_bot]" size="xl"></font-awesome-icon>
+              <span >{{ choice_bot }}</span>
             </div>
 
             <div class="anzeige-ergebnis"><p>{{output}}</p></div>
 
-            <div class="anzeige-mensch auswahl-anzeige"><i id="human" class="fa-regular fa-lg"  :class="class_human"></i> <span>{{choice_human}}</span></div>
+            <div class="anzeige-mensch auswahl-anzeige">
+              <font-awesome-icon :icon="['fas',class_human]" size="xl"></font-awesome-icon>
+              <span >{{ choice_human }}</span>
+              
+            </div>
         </div>
 
         <div class="auswahlfeld">
             <div class="auswahl">
                 <ul class="auswahl-liste">
-                    <li><div class="icons" name="rock" @click="getHumanChoice('rock')"><i class="fa-regular fa-hand-rock fa-lg"></i></div><span class="icon-text">rock</span> </li>
-                    <li><div class="icons" name="paper" @click="getHumanChoice('paper')"><i class="fa-regular fa-hand-paper fa-lg"></i></div><span class="icon-text">paper</span></li>
-                    <li><div class="icons" name="scissors" @click="getHumanChoice('scissors')"><i class="fa-regular fa-hand-scissors fa-lg"></i></div><span class="icon-text">scissors</span></li>
-                    <li><div class="icons" name="lizard" @click="getHumanChoice('lizard')"><i class="fa-regular fa-hand-lizard fa-lg"></i></div><span class="icon-text">lizard</span></li>
-                    <li><div class="icons" name="spock" @click="getHumanChoice('spock')"><i class="fa-regular fa-hand-spock fa-lg"></i></div><span class="icon-text">spock</span></li>
+                    <li><div class="icons" name="rock" @click="getHumanChoice('rock')"><font-awesome-icon icon="fa-solid fa-hand-back-fist" size="lg" /></div><span class="icon-text">rock</span> </li>
+                    <li><div class="icons" name="paper" @click="getHumanChoice('paper')"><font-awesome-icon icon="fa-solid fa-hand-paper" size="lg" /></div><span class="icon-text">paper</span></li>
+                    <li><div class="icons" name="scissors" @click="getHumanChoice('scissors')"><font-awesome-icon icon="fa-solid fa-hand-scissors" size="lg"/></div><span class="icon-text">scissors</span></li>
+                    <li><div class="icons" name="lizard" @click="getHumanChoice('lizard')"><font-awesome-icon icon="fa-solid fa-hand-lizard" size="lg" /></div><span class="icon-text">lizard</span></li>
+                    <li><div class="icons" name="spock" @click="getHumanChoice('spock')"><font-awesome-icon icon="fa-solid fa-hand-spock" size="lg"/></div><span class="icon-text">spock</span></li>
                 </ul>
             </div>
 
@@ -80,7 +85,7 @@ export default{
      
       switch(choice){
         case 'rock':
-          return 'fa-hand-rock';
+          return 'fa-hand-back-fist';
           break;
         case 'scissors':
           return'fa-hand-scissors';
